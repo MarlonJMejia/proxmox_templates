@@ -1,0 +1,24 @@
+#cloud-config
+users:
+  - default
+  - name: ubuntu
+    lock_passwd: false
+    groups: [wheel, adm, sudo]
+    #passwd: $6$tRmoLz1fGMpxSWYg$6OBkLQ.p.REg7gp9vus7NdoABqBTjzMGLXHxN/LHiuYJQzjan9HBTceZwzjU7r68/T8FcAvvt1MVSZLwHiuc20
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICVDJkj1RWQvGVkUEVMG1koaWCylROa0Ri7acbMjqTvj illegal@legal"
+  - name: root
+    ssh_authorized_keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICVDJkj1RWQvGVkUEVMG1koaWCylROa0Ri7acbMjqTvj illegal@legal"
+    lock_passwd: false
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+packages:
+  - qemu-guest-agent
+  - curl
+  - wget
+  - vim
+runcmd:
+    - apt update
+    - systemctl start qemu-guest-agent
+    - systemctl restart ssh

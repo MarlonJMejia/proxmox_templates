@@ -1,0 +1,9 @@
+#cloud-config
+users:
+  - default
+  - name: rocky
+    lock_passwd: false
+    groups: [wheel, adm, sudo]
+    #passwd: $6$tRmoLz1fGMpxSWYg$6OBkLQ.p.REg7gp9vus7NdoABqBTjzMGLXHxN/LHiuYJQzjan9HBTceZwzjU7r68/T8FcAvvt1MVSZLwHiuc20
+    ssh_authorized_keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICVDJkj1RWQvGVkUEVMG1koaWCylROa0Ri7acbMjqTvj illegal@legal"
