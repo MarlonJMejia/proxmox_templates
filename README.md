@@ -1,3 +1,6 @@
+Defaults:
+2 CPU - 2G Memory - vmbr0 Network 
+
 # Basic VM
 
 ```bash
